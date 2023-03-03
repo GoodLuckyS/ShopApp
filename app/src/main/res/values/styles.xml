@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShopApp.TextInput.OutlinedBox.Light" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomStart">24dp</item>
+        <item name="boxCornerRadiusBottomEnd">24dp</item>
+        <item name="boxCornerRadiusTopEnd">24dp</item>
+        <item name="boxCornerRadiusTopStart">24dp</item>
+        <item name="boxBackgroundColor">#E8E8E8</item>
+        <item name="android:layout_marginStart">44dp</item>
+        <item name="android:layout_marginEnd">44dp</item>
+        <item name="android:layout_marginTop">35dp</item>
+        <item name="boxStrokeColor">@color/text_input_layout_stroke_white</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="ShopApp.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+    
+    <style name="ShopApp.Profile.Settings.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">0dp</item>
+         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:gravity">center|left</item>
+    </style>
+
+    <style name="SettingsIcon">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+    </style>
+
+    <style name="SettingsForward">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_marginEnd">44dp</item>
+        <item name="android:cropToPadding">true</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:src">@drawable/ic_arrow_forward</item>
+    </style>
+
+
+
+</resources>

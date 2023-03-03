@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ShopApp</string>
+
+    <!-- Error Strings -->
+    <string name="error_empty_field">This field must be filled</string>
+    <string name="error_email_contains">This field should contain Email</string>
+</resources>
