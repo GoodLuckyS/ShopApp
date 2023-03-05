@@ -4,5 +4,5 @@ import com.example.shopapp.domain.user.UserRepository
 import javax.inject.Inject
 
 class SignOutUseCase@Inject constructor(private val repository: UserRepository) {
-    suspend fun invoke() = repository.signOut()
+    suspend operator fun invoke() = repository.signOut()
 }

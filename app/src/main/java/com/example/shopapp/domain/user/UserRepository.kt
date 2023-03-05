@@ -1,15 +1,14 @@
 package com.example.shopapp.domain.user
 
-import com.example.shopapp.domain.AppException
-import com.example.shopapp.domain.LocalResponse
+import com.example.shopapp.domain.AppResponse
 
 interface UserRepository {
 
-    suspend fun signIn(email:String): LocalResponse<Unit>
+    suspend fun signIn(email:String): AppResponse<Unit>
 
-    suspend fun signUp(data:SignUpData): LocalResponse<Unit>
+    suspend fun signUp(data:SignUpData): AppResponse<Unit>
 
-    suspend fun signOut(): LocalResponse<Unit>
+    suspend fun signOut(): AppResponse<Unit>
 
-    suspend fun getAuthState(): LocalResponse<Boolean>
+    suspend fun getAuthState(): AppResponse<Boolean>
 }

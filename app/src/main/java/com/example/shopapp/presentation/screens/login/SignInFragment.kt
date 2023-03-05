@@ -1,4 +1,4 @@
-package com.example.shopapp.presentation.screens.page2
+package com.example.shopapp.presentation.screens.login
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController

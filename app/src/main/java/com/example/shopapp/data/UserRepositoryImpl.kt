@@ -1,14 +1,8 @@
-package com.example.shopapp.data.local.user
+package com.example.shopapp.data
 
-import android.provider.ContactsContract.Data
-import android.util.Log
-import com.example.shopapp.data.BaseRepository
-import com.example.shopapp.data.SignInException
-import com.example.shopapp.data.UniqueEmailException
 import com.example.shopapp.data.local.settings.AppSettings
-import com.example.shopapp.data.local.user.models.SignInTuple
-import com.example.shopapp.domain.AppException
-import com.example.shopapp.domain.LocalResponse
+import com.example.shopapp.data.local.user.UsersDao
+import com.example.shopapp.domain.AppResponse
 import com.example.shopapp.domain.user.SignUpData
 import com.example.shopapp.domain.user.UserRepository
 import kotlinx.coroutines.delay
@@ -22,25 +16,25 @@ class UserRepositoryImpl @Inject constructor(
 
     private val currentAccount = MutableStateFlow(appSettings.getCurrentAccountId())
 
-    override suspend fun signIn(email: String): LocalResponse<Unit> = doRequest {
+    override suspend fun signIn(email: String): AppResponse<Unit> = doRequest {
         usersDao.signIn(email).also {
             setCurrentAccount(it?.id)
         }
     }
 
-    override suspend fun signUp(data: SignUpData): LocalResponse<Unit> = doRequest {
+    override suspend fun signUp(data: SignUpData): AppResponse<Unit> = doRequest {
         delay(2000)
         val validate = usersDao.findUserByEmail(data.email)
         if(validate?.id != null) throw UniqueEmailException()
         usersDao.signUp(data.toData())
     }
 
-    override suspend fun signOut(): LocalResponse<Unit> = doRequest {
+    override suspend fun signOut(): AppResponse<Unit> = doRequest {
         appSettings.setCurrentAccountId(AppSettings.UNDEFINED_ID)
         currentAccount.value = AppSettings.UNDEFINED_ID
     }
 
-    override suspend fun getAuthState(): LocalResponse<Boolean> = doRequest {
+    override suspend fun getAuthState(): AppResponse<Boolean> = doRequest {
         currentAccount.value != AppSettings.UNDEFINED_ID
     }
 

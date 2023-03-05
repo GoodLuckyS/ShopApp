@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.shopapp.presentation.screens.page2.SignInFragment"
+        android:name="com.example.shopapp.presentation.screens.login.SignInFragment"
         android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_tabsHostFragment"
