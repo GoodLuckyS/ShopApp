@@ -4,5 +4,5 @@ import com.example.shopapp.domain.shop.ShopRepository
 import javax.inject.Inject
 
 class GetAllShopItemsUseCase@Inject constructor(private val repository: ShopRepository) {
-    suspend operator fun invoke() = repository.getAllItems()
+    suspend operator fun invoke() = repository.getAllProductsList()
 }

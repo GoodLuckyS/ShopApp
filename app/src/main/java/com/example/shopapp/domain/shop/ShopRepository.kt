@@ -4,10 +4,8 @@ import com.example.shopapp.domain.AppResponse
 
 interface ShopRepository {
 
-    suspend fun getAllItems() : AppResponse<ShopList>
+    suspend fun getAllProductsList() : AppResponse<List<ProductsAndCategory>>
 
-    suspend fun getLatestItems() : AppResponse<List<ShopItem>>
-
-    suspend fun getFlashSaleItems() : AppResponse<List<ShopItem>>
+   suspend fun getProductById(id:Int)
 
 }

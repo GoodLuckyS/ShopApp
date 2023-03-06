@@ -16,11 +16,11 @@ abstract class BaseRepository {
         }
     }
 
-    suspend fun <T> doNetworkRequest(request: suspend() -> Response<T>) : AppResponse<T> {
+    suspend fun <T : DataMapper<T, S>, S> doNetworkRequest(request: suspend() -> Response<T>) : AppResponse<S> {
         return try {
             request().let {
                 if(it.isSuccessful && it.body()!=null){
-                    AppResponse.Success(it.body()!!)
+                    AppResponse.Success(it.body()!!.mapToDomain())
                 } else {
                     AppResponse.Error(AppError.Api(it.message()))
                 }

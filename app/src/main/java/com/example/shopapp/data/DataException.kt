@@ -3,7 +3,7 @@ package com.example.shopapp.data
 abstract class DataException() : RuntimeException() {
     abstract override val message: String
 }
-//TODO#EXCEPT
+
 class UniqueEmailException : DataException() {
     override val message  = "An account with this email already exists"
 }

@@ -15,7 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewbinding.ViewBinding
 import com.example.shopapp.MainApplication
 import com.example.shopapp.domain.AppError
-import com.example.shopapp.presentation.entity.UIState
+import com.example.shopapp.presentation.utils.UIState
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,4 +1,4 @@
-package com.example.shopapp.presentation.entity
+package com.example.shopapp.presentation.utils
 
 import com.example.shopapp.domain.AppError
 

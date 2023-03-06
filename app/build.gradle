@@ -57,6 +57,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.okhttp3:okhttp:$okHttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttp_version"
+    implementation "com.github.bumptech.glide:glide:4.14.2"
 
     //DI
     def dagger_version = "2.41"

@@ -1,15 +1,14 @@
 package com.example.shopapp.data.remote.service
 
 import com.example.shopapp.data.remote.entity.FlashSaleDTO
-import com.example.shopapp.data.remote.entity.ShopItemDTO
-import com.example.shopapp.data.remote.entity.SoapDTO
+import com.example.shopapp.data.remote.entity.LatestDTO
 import retrofit2.Response
 import retrofit2.http.GET
 
 interface ShopService {
 
     @GET(LATEST_URL)
-    suspend fun getLatestItems(): Response<SoapDTO>
+    suspend fun getLatestItems(): Response<LatestDTO>
 
     @GET(FLASH_SALE_URL)
     suspend fun getFlashSaleItems(): Response<FlashSaleDTO>

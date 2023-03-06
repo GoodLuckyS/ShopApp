@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseAdapter<T : BaseUIEntity<Int>, VB : ViewBinding> :
+abstract class BaseAdapter<T : BaseUIModel<Int>, VB : ViewBinding> :
     ListAdapter<T, BaseAdapter.BaseViewHolder<T>>(BaseDiffUtilItemCallback()) {
 
     var onClickListener: ((item: T) -> Unit)? = null

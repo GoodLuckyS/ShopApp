@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.shopapp.di.utils.ViewModelKey
 import com.example.shopapp.presentation.screens.SignUpViewModel
 import com.example.shopapp.presentation.screens.login.SignInViewModel
+import com.example.shopapp.presentation.screens.main.PageViewModel
 import com.example.shopapp.presentation.screens.personal.PersonalViewModel
 import dagger.Binds
 import dagger.Module
@@ -26,4 +27,10 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(PersonalViewModel::class)
     fun bindsPersonalViewModel(viewModel: PersonalViewModel): ViewModel
+
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PageViewModel::class)
+    fun bindsPageViewModel(viewModel: PageViewModel): ViewModel
 }

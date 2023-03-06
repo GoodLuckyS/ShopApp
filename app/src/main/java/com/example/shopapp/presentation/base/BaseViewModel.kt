@@ -3,7 +3,7 @@ package com.example.shopapp.presentation.base
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.shopapp.domain.AppResponse
-import com.example.shopapp.presentation.entity.UIState
+import com.example.shopapp.presentation.utils.UIState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
