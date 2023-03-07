@@ -2,8 +2,8 @@ package com.example.shopapp.presentation.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.shopapp.domain.AppResponse
-import com.example.shopapp.presentation.utils.UIState
+import com.example.shopapp.domain.utils.AppResponse
+import com.example.shopapp.presentation.models.UIState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -12,14 +12,12 @@ abstract class BaseViewModel : ViewModel() {
     @Suppress("FunctionName")
     protected fun <T> MutableUIStateFlow() = MutableStateFlow<UIState<T>>(UIState.Idle())
 
-    fun <T> MutableStateFlow<UIState<T>>.reset() {
-        value = UIState.Idle()
-    }
 
     protected fun <T> handleRequest(
         state: MutableStateFlow<UIState<T>>,
         block: suspend () -> AppResponse<T>,
-    ) {
+
+        ) {
         state.value = UIState.Loading()
         viewModelScope.launch {
             block().also {
@@ -29,7 +27,23 @@ abstract class BaseViewModel : ViewModel() {
                 }
             }
         }
+    }
 
+    protected fun <T, M> handleRequest(
+        state: MutableStateFlow<UIState<T>>,
+        mappedData: ((M) -> T),
+        block: suspend () -> AppResponse<M>,
+
+        ) {
+        state.value = UIState.Loading()
+        viewModelScope.launch {
+            block().also {
+                when (it) {
+                    is AppResponse.Success -> state.value = UIState.Success(mappedData(it.value))
+                    is AppResponse.Error -> state.value = UIState.Error(it.value)
+                }
+            }
+        }
     }
 
     protected fun <T, M, S> MutableSharedFlow<T>.emitRequest(

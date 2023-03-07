@@ -18,10 +18,20 @@
         <item name="cornerFamily">cut</item>
         <item name="cornerRadius">16dp</item>
     </style>
-    
+
+    <style name="RoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="ShopApp.Profile.Settings.TextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_width">0dp</item>
-         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:textSize">14sp</item>

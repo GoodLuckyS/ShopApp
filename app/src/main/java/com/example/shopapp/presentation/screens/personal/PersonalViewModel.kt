@@ -18,4 +18,7 @@ class PersonalViewModel @Inject constructor(
         }
     }
 
+    val a = ""
+    
+
 }

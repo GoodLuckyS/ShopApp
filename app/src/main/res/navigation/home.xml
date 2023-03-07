@@ -5,6 +5,14 @@
     app:startDestination="@id/pageFragment">
     <fragment
         android:id="@+id/pageFragment"
-        android:name="com.example.shopapp.presentation.screens.main.PageFragment"
-        android:label="PageFragment" />
+        android:name="com.example.shopapp.presentation.screens.home.HomeFragment"
+        android:label="PageFragment" >
+        <action
+            android:id="@+id/action_pageFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.shopapp.presentation.screens.details.DetailsFragment"
+        android:label="DetailsFragment" />
 </navigation>

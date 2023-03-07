@@ -2,10 +2,11 @@ package com.example.shopapp.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.example.shopapp.di.utils.ViewModelKey
-import com.example.shopapp.presentation.screens.SignUpViewModel
+import com.example.shopapp.presentation.screens.details.DetailsViewModel
+import com.example.shopapp.presentation.screens.home.HomeViewModel
 import com.example.shopapp.presentation.screens.login.SignInViewModel
-import com.example.shopapp.presentation.screens.main.PageViewModel
 import com.example.shopapp.presentation.screens.personal.PersonalViewModel
+import com.example.shopapp.presentation.screens.registration.SignUpViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -31,6 +32,11 @@ interface ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(PageViewModel::class)
-    fun bindsPageViewModel(viewModel: PageViewModel): ViewModel
+    @ViewModelKey(HomeViewModel::class)
+    fun bindsHomeViewModel(viewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailsViewModel::class)
+    fun bindsDetailsViewModel(viewModel: DetailsViewModel) : ViewModel
 }

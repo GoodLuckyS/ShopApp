@@ -12,10 +12,10 @@ import dagger.Provides
 interface RemoteModule {
     @ApplicationScope
     @Binds
-    fun bindShopRepository(impl:ShopRepositoryImpl) : ShopRepository
+    fun bindShopRepository(impl: ShopRepositoryImpl) : ShopRepository
     companion object {
         @ApplicationScope
         @Provides
-        fun provideService() = RemoteService().configureRetrofit()
+        fun provideService() =  RemoteService().configureRetrofit()
     }
 }

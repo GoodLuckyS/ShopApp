@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/first"
-        android:name="com.example.shopapp.presentation.screens.SignUpFragment"
+        android:name="com.example.shopapp.presentation.screens.registration.SignUpFragment"
         android:label="First" >
         <action
             android:id="@+id/action_first_to_signInFragment"

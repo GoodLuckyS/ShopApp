@@ -6,7 +6,7 @@ import com.example.shopapp.di.DaggerAppComponent
 class MainApplication : Application() {
 
     val appComponent by lazy {
-         DaggerAppComponent.factory().create(this)
+      DaggerAppComponent.factory().create(this)
     }
 
 }
