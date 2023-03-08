@@ -1,8 +1,8 @@
 package com.example.shopapp.di.modules
 
 import android.app.Application
-import com.example.shopapp.data.local.UserRepositoryImpl
 import com.example.shopapp.data.local.AppDatabase
+import com.example.shopapp.data.local.UserRepositoryImpl
 import com.example.shopapp.data.local.settings.AppSettings
 import com.example.shopapp.data.local.settings.SharedPreferencesAppSettings
 import com.example.shopapp.data.local.user.UsersDao

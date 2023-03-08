@@ -2,8 +2,8 @@ package com.example.shopapp.ui.screens.login
 
 import com.example.shopapp.domain.user.usecase.SignInUseCase
 import com.example.shopapp.ui.base.BaseViewModel
+import com.example.shopapp.ui.models.FieldState
 import com.example.shopapp.ui.utils.Field
-import com.example.shopapp.ui.utils.FieldState
 import com.example.shopapp.ui.utils.VerifyField
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

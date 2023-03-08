@@ -1,4 +1,4 @@
-package com.example.shopapp.ui.utils
+package com.example.shopapp.ui.models
 
 data class FieldState(
     val fieldInputMessage: String = "",

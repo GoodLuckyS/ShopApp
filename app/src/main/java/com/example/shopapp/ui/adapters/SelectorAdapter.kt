@@ -12,23 +12,43 @@ import com.example.shopapp.databinding.SelectorTagBinding
 import com.example.shopapp.ui.base.BaseAdapter
 import com.example.shopapp.ui.models.SelectorUI
 
-class SelectorAdapter : BaseAdapter<SelectorUI,ViewBinding>() {
+class SelectorAdapter : BaseAdapter<SelectorUI, ViewBinding>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
     ): BaseViewHolder<SelectorUI> {
         val inflater = LayoutInflater.from(parent.context)
-        return when(viewType){
-            R.layout.selector_tag -> SelectorViewHolder.Tag(SelectorTagBinding.inflate(inflater,parent,false))
-            R.layout.selector_color -> SelectorViewHolder.Color(SelectorColorBinding.inflate(inflater,parent,false))
-            R.layout.selector_images -> SelectorViewHolder.Image(SelectorImagesBinding.inflate(inflater,parent,false))
-            else -> {SelectorViewHolder.Image(SelectorImagesBinding.inflate(inflater,parent,false))}
+        return when (viewType) {
+            R.layout.selector_tag -> SelectorViewHolder.Tag(
+                SelectorTagBinding.inflate(
+                    inflater,
+                    parent,
+                    false
+                )
+            )
+            R.layout.selector_color -> SelectorViewHolder.Color(
+                SelectorColorBinding.inflate(
+                    inflater,
+                    parent,
+                    false
+                )
+            )
+            R.layout.selector_images -> SelectorViewHolder.Image(
+                SelectorImagesBinding.inflate(
+                    inflater,
+                    parent,
+                    false
+                )
+            )
+            else -> {
+                SelectorViewHolder.Image(SelectorImagesBinding.inflate(inflater, parent, false))
+            }
         }
     }
 
 
     override fun getItemViewType(position: Int): Int {
-        return when(getItem(position)) {
+        return when (getItem(position)) {
             is SelectorUI.Tag -> R.layout.selector_tag
             is SelectorUI.Color -> R.layout.selector_color
             is SelectorUI.Image -> R.layout.selector_images
@@ -36,11 +56,11 @@ class SelectorAdapter : BaseAdapter<SelectorUI,ViewBinding>() {
     }
 
 
-    sealed  class SelectorViewHolder(binding: ViewBinding) : BaseViewHolder<SelectorUI>(binding){
+    sealed class SelectorViewHolder(binding: ViewBinding) : BaseViewHolder<SelectorUI>(binding) {
 
         class Tag(val binding: SelectorTagBinding) : SelectorViewHolder(binding) {
             override fun bind(item: SelectorUI) {
-                if(item is SelectorUI.Tag){
+                if (item is SelectorUI.Tag) {
                     binding.shapeableImageView.setImageResource(item.imageId)
                     binding.tvName.text = item.title
                 }
@@ -48,18 +68,18 @@ class SelectorAdapter : BaseAdapter<SelectorUI,ViewBinding>() {
 
         }
 
-        class Color(val binding: SelectorColorBinding) : SelectorViewHolder(binding){
+        class Color(val binding: SelectorColorBinding) : SelectorViewHolder(binding) {
             override fun bind(item: SelectorUI) {
-                if(item is SelectorUI.Color) {
+                if (item is SelectorUI.Color) {
                     binding.color.setBackgroundColor(item.colorHex.toColorInt())
                 }
             }
 
         }
 
-        class Image(val binding: SelectorImagesBinding) : SelectorViewHolder(binding){
+        class Image(val binding: SelectorImagesBinding) : SelectorViewHolder(binding) {
             override fun bind(item: SelectorUI) {
-                if(item is SelectorUI.Image) {
+                if (item is SelectorUI.Image) {
                     Glide.with(binding.image)
                         .load(item.url)
                         .into(binding.image)

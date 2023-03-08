@@ -4,7 +4,7 @@ data class ProductAndDetails(
     val name: String,
     val description: String,
     val rating: Float,
-    val numbersOfReviews : Int,
+    val numbersOfReviews: Int,
     val price: Float,
     val colors: List<String>,
     val imagesUrls: List<String>,

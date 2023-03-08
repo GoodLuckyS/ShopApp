@@ -15,12 +15,12 @@ data class ProductAndDetailsUI(
 ) : BaseUIModel<String>
 
 fun ProductAndDetails.mapToUI() = ProductAndDetailsUI(
-    name =name,
+    name = name,
     description = description,
     rating = rating.toString(),
     numbersOfReviews = numbersOfReviews.toString(),
-    price = String.format("$%s",price.toString()),
-    colors = colors.map {  it.toSelectorUIColor() },
+    price = String.format("$%s", price.toString()),
+    colors = colors.map { it.toSelectorUIColor() },
     imageUrls = imagesUrls.map { it.toSelectorUIImage() },
     id = id
 )

@@ -14,14 +14,14 @@ import javax.inject.Inject
 class PersonalViewModel @Inject constructor(
     private val signOutUseCase: SignOutUseCase,
     private val getUserUseCase: GetUserUseCase,
-    private val updateUserImageUseCase: UpdateUserImageUseCase
+    private val updateUserImageUseCase: UpdateUserImageUseCase,
 ) : BaseViewModel() {
 
     private var _uiState = MutableUIStateFlow<User>()
     val uiState = _uiState.asStateFlow()
 
     init {
-        handleRequest(_uiState){
+        handleRequest(_uiState) {
             getUserUseCase()
         }
     }
@@ -32,8 +32,8 @@ class PersonalViewModel @Inject constructor(
         }
     }
 
-    fun updateUserImage(uri:String){
-        viewModelScope.launch(Dispatchers.IO){
+    fun updateUserImage(uri: String) {
+        viewModelScope.launch(Dispatchers.IO) {
             updateUserImageUseCase(uri)
         }
     }

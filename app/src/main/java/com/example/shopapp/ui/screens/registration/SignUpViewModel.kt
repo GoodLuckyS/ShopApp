@@ -4,8 +4,8 @@ import com.example.shopapp.domain.user.models.SignUpData
 import com.example.shopapp.domain.user.usecase.SignInGoogleUseCase
 import com.example.shopapp.domain.user.usecase.SignUpUseCase
 import com.example.shopapp.ui.base.BaseViewModel
+import com.example.shopapp.ui.models.FieldState
 import com.example.shopapp.ui.utils.Field
-import com.example.shopapp.ui.utils.FieldState
 import com.example.shopapp.ui.utils.VerifyField
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class SignUpViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase,
-    private val signInGoogleUseCase: SignInGoogleUseCase
+    private val signInGoogleUseCase: SignInGoogleUseCase,
 ) : BaseViewModel() {
 
     private var _uiState = MutableUIStateFlow<Unit>()
@@ -38,7 +38,7 @@ class SignUpViewModel @Inject constructor(
     }
 
     fun signInWithGoogle() {
-        handleRequest(_uiState){
+        handleRequest(_uiState) {
             signInGoogleUseCase()
         }
     }

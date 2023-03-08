@@ -12,7 +12,7 @@ data class ProductUIModel(
     override val id: String = "",
 ) : BaseUIModel<String> {
 
-    override fun toString(): String =this.name
+    override fun toString(): String = this.name
 
 }
 

@@ -6,7 +6,7 @@ data class Product(
     val price: Float,
     val imageUrl: String,
     val discount: Int = UNDEF_FIELD,
-    val id : String = UNDEF_ID
+    val id: String = UNDEF_ID,
 ) {
     companion object {
         const val UNDEF_ID: String = ""

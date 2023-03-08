@@ -10,12 +10,12 @@ import com.example.shopapp.data.local.user.models.UserDbEntity
 @Database(
     version = 1,
     entities = [
-       UserDbEntity::class,
+        UserDbEntity::class,
     ]
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun usersDao() : UsersDao
+    abstract fun usersDao(): UsersDao
 
     companion object {
 

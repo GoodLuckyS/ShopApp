@@ -3,6 +3,7 @@ package com.example.shopapp.ui.screens.personal
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
+import androidx.navigation.navOptions
 import com.bumptech.glide.Glide
 import com.example.shopapp.R
 import com.example.shopapp.databinding.FragmentPersonalBinding
@@ -21,7 +22,9 @@ class PersonalFragment : BaseFragment<FragmentPersonalBinding>(
 
         tvLogout.setOnClickListener {
             viewModel.signOut()
-            findTopNavController().navigate(R.id.first)
+            findTopNavController().navigate(R.id.sign_up_fragment, null, navOptions {
+                popUpTo(R.id.tabsHostFragment) { inclusive = true }
+            })
         }
 
         val openLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) {
@@ -53,7 +56,7 @@ class PersonalFragment : BaseFragment<FragmentPersonalBinding>(
         }
     }
 
-    private fun setImage(uri:String){
+    private fun setImage(uri: String) {
         Glide.with(binding.imgProfile)
             .load(uri.toUri())
             .apply(glideOptions)

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="175dp"
     android:layout_height="220dp"
     android:layout_margin="4dp"
@@ -22,15 +21,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imv_saler"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_margin="8dp"
             android:src="@drawable/ic_saler"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
@@ -49,15 +48,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/shape_rounded_rectangle_tb"
+            android:backgroundTint="#F93A3A"
             android:paddingStart="8dp"
             android:paddingTop="4dp"
             android:paddingEnd="8dp"
             android:paddingBottom="4dp"
-            android:backgroundTint="#F93A3A"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="10sp"
             android:text="30% off"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,10 +113,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingBottom="12dp"
-            android:textStyle="bold"
             android:text="$180000"
             android:textColor="@color/white"
             android:textSize="11sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/fab2"
             app:layout_constraintHorizontal_bias="1.0"

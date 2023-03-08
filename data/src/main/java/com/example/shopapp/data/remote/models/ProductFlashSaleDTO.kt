@@ -5,13 +5,13 @@ import com.example.shopapp.domain.shop.models.Product
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class ProductFlashSaleDTO (
+data class ProductFlashSaleDTO(
 
     @SerializedName("category") val category: String? = null,
     @SerializedName("name") val name: String? = null,
     @SerializedName("price") val price: Float? = null,
     @SerializedName("image_url") val imageUrl: String? = null,
-    @SerializedName("discount") val discount : Int? = null
+    @SerializedName("discount") val discount: Int? = null,
 ) : DataMapper<ProductFlashSaleDTO, Product> {
     override fun ProductFlashSaleDTO.mapToDomain(): Product =
         Product(

@@ -19,7 +19,11 @@ class ChildAdapter(private val category: String) : BaseAdapter<ProductUIModel, I
     ): BaseViewHolder<ProductUIModel> {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            R.layout.item_flash_sale -> ProductViewHolder.FlashSale(ItemFlashSaleBinding.inflate(inflater, parent, false))
+            R.layout.item_flash_sale -> ProductViewHolder.FlashSale(
+                ItemFlashSaleBinding.inflate(
+                    inflater, parent, false
+                )
+            )
             R.layout.item -> ProductViewHolder.Latest(ItemBinding.inflate(inflater, parent, false))
             else -> ProductViewHolder.Latest(ItemBinding.inflate(inflater, parent, false))
         }
@@ -38,9 +42,7 @@ class ChildAdapter(private val category: String) : BaseAdapter<ProductUIModel, I
     sealed class ProductViewHolder(binding: ViewBinding) : BaseViewHolder<ProductUIModel>(binding) {
 
         protected fun loadImage(imageView: ImageView, url: String) {
-            Glide.with(imageView)
-                .load(url)
-                .into(imageView)
+            Glide.with(imageView).load(url).into(imageView)
         }
 
         class Latest(private val binding: ItemBinding) : ProductViewHolder(binding) {

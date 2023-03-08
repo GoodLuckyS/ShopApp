@@ -16,7 +16,7 @@ class DetailsViewModel @Inject constructor(
     val uiState = _uiState.asStateFlow()
 
     init {
-        handleRequest(_uiState, ProductAndDetails::mapToUI){
+        handleRequest(_uiState, ProductAndDetails::mapToUI) {
             getProductByIdUseCase()
         }
     }

@@ -16,12 +16,11 @@ class SharedPreferencesAppSettings(context: Context) : AppSettings {
 
     override fun setCurrentAccountId(id: Long) {
         sharedPreferences.edit()
-            .putLong(PREF_NODE_ACCOUNT_ID,id)
+            .putLong(PREF_NODE_ACCOUNT_ID, id)
             .apply()
     }
 
     override fun isAuth(): Boolean = getCurrentAccountId() != UNDEFINED_ID
-
 
 
     companion object {

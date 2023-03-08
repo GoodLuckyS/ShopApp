@@ -39,10 +39,10 @@ interface ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(DetailsViewModel::class)
-    fun bindsDetailsViewModel(viewModel: DetailsViewModel) : ViewModel
+    fun bindsDetailsViewModel(viewModel: DetailsViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)
-    fun bindsTabsHostViewModel(viewModel: MainViewModel) : ViewModel
+    fun bindsTabsHostViewModel(viewModel: MainViewModel): ViewModel
 }

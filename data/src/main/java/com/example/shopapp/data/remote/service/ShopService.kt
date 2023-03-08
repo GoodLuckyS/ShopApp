@@ -15,7 +15,7 @@ interface ShopService {
     suspend fun getFlashSaleItems(): Response<FlashSaleDTO>
 
     @GET(PRODUCT_DETAILS_URL)
-    suspend fun getItemDetails() : Response<ProductAndDetailsDTO>
+    suspend fun getItemDetails(): Response<ProductAndDetailsDTO>
 
     companion object {
         const val LATEST_URL = "/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7/"

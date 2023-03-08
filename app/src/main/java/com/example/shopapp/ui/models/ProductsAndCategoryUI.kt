@@ -5,8 +5,8 @@ import com.example.shopapp.ui.base.BaseUIModel
 
 data class ProductsAndCategoryUI(
     val title: String = "",
-    val list : List<ProductUIModel> = emptyList(),
-    override val id: String = ""
+    val list: List<ProductUIModel> = emptyList(),
+    override val id: String = "",
 ) : BaseUIModel<String>
 
 fun ProductsAndCategory.mapToUI() = ProductsAndCategoryUI(
@@ -15,11 +15,11 @@ fun ProductsAndCategory.mapToUI() = ProductsAndCategoryUI(
     id = id
 )
 
-fun List<ProductsAndCategory>.mapToUI()= this.map {
+fun List<ProductsAndCategory>.mapToUI() = this.map {
     it.mapToUI()
 }
 
-fun List<ProductsAndCategoryUI>.mapToDropDownAdapter() : List<ProductUIModel> {
+fun List<ProductsAndCategoryUI>.mapToDropDownAdapter(): List<ProductUIModel> {
     val temp = mutableListOf<ProductUIModel>()
     this.forEach {
         temp.addAll(it.list)

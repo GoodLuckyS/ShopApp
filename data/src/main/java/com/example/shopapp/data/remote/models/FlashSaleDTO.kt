@@ -10,7 +10,7 @@ import java.util.*
 data class FlashSaleDTO(
     @SerializedName("flash_sale") val flashSale: List<ProductFlashSaleDTO> = listOf(),
 ) : DataMapper<FlashSaleDTO, ProductsAndCategory> {
-    override fun FlashSaleDTO.mapToDomain()= ProductsAndCategory(
+    override fun FlashSaleDTO.mapToDomain() = ProductsAndCategory(
         id = UUID.randomUUID().toString(),
         category = Category.FlashSale,
         productsList = this.flashSale.map { it.mapToDomain() }

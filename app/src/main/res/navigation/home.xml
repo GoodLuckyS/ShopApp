@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/pageFragment"
         android:name="com.example.shopapp.ui.screens.home.HomeFragment"
-        android:label="PageFragment" >
+        android:label="PageFragment">
         <action
             android:id="@+id/action_pageFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />

@@ -2,9 +2,9 @@ package com.example.shopapp.data.remote
 
 import com.example.shopapp.data.BaseRepository
 import com.example.shopapp.data.remote.service.ShopService
-import com.example.shopapp.domain.utils.AppResponse
 import com.example.shopapp.domain.shop.models.ProductAndDetails
 import com.example.shopapp.domain.shop.models.ProductsAndCategory
+import com.example.shopapp.domain.utils.AppResponse
 import javax.inject.Inject
 
 class ShopRepositoryImpl @Inject constructor(private val shopService: ShopService) :
@@ -26,9 +26,10 @@ class ShopRepositoryImpl @Inject constructor(private val shopService: ShopServic
         }
     }
 
-    override suspend fun getProductById(id: String): AppResponse<ProductAndDetails> = doNetworkRequest {
-        shopService.getItemDetails()
-    }
+    override suspend fun getProductById(id: String): AppResponse<ProductAndDetails> =
+        doNetworkRequest {
+            shopService.getItemDetails()
+        }
 
     private suspend fun getLatestItems(): AppResponse<ProductsAndCategory> = doNetworkRequest {
         shopService.getLatestItems()

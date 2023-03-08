@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
 
     <style name="Base.V26.Theme.ShopApp" parent="Theme.Material3.DayNight">
@@ -17,7 +17,7 @@
         <item name="fontFamily">@font/montserrat</item>
     </style>
 
-    <style name="Base.Theme.ShopApp" parent="Base.V26.Theme.ShopApp"/>
+    <style name="Base.Theme.ShopApp" parent="Base.V26.Theme.ShopApp" />
 
     <style name="Theme.ShopApp" parent="Base.Theme.ShopApp">
 

@@ -1,6 +1,5 @@
 package com.example.shopapp.ui
 
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.shopapp.MainApplication
 import com.example.shopapp.R
-import com.example.shopapp.data.SignInException
 import com.example.shopapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
 
 
     private fun prepareRootNavController() {
@@ -60,5 +57,5 @@ class MainActivity : AppCompatActivity() {
     private fun getTabsDestination(): Int = R.id.tabsHostFragment
 
 
-    private fun getAuthDestination(): Int = R.id.first
+    private fun getAuthDestination(): Int = R.id.sign_up_fragment
 }

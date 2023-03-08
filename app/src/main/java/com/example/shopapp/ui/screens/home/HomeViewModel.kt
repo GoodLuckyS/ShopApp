@@ -15,7 +15,7 @@ class HomeViewModel @Inject constructor(private val getAllShopItemsUseCase: GetA
     val uiState = _uiState.asStateFlow()
 
     init {
-        handleRequest(_uiState,List<ProductsAndCategory>::mapToUI){
+        handleRequest(_uiState, List<ProductsAndCategory>::mapToUI) {
             getAllShopItemsUseCase()
         }
     }

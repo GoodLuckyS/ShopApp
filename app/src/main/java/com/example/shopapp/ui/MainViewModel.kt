@@ -12,6 +12,8 @@ class MainViewModel @Inject constructor(
     private val getAuthStateUseCase: GetAuthStateUseCase,
 ) : BaseViewModel() {
 
-    val auth : StateFlow<Boolean> = getAuthStateUseCase().stateIn(viewModelScope,
-        SharingStarted.Eagerly,false)
+    val auth: StateFlow<Boolean> = getAuthStateUseCase().stateIn(
+        viewModelScope,
+        SharingStarted.Eagerly, false
+    )
 }

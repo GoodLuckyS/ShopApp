@@ -22,8 +22,8 @@ class HomeFragment : BaseFragment<FragmentPageBinding>(
 
     private fun initRecyclerView() {
         binding.recyclerView.adapter = adapter
-        adapter.onChildClickListener= {
-           findNavController().navigate(R.id.action_pageFragment_to_detailsFragment)
+        adapter.onChildClickListener = {
+            findNavController().navigate(R.id.action_pageFragment_to_detailsFragment)
         }
         val selectorAdapter = SelectorAdapter()
         binding.selectorRC.adapter = selectorAdapter
@@ -37,7 +37,7 @@ class HomeFragment : BaseFragment<FragmentPageBinding>(
                 adapter.submitList(it)
                 binding.edtSearch.setAdapter(DropDownAdapter(requireContext(), data = it))
             }
-            it.setupViewVisibility(binding.group,binding.progressBar2,false)
+            it.setupViewVisibility(binding.group, binding.progressBar2, false)
         }
     }
 

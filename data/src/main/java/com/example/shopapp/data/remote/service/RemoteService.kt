@@ -9,7 +9,7 @@ class RemoteService {
 
     val BASE_URL = "https://run.mocky.io/"
 
-    fun configureRetrofit() : ShopService {
+    fun configureRetrofit(): ShopService {
 
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -18,7 +18,6 @@ class RemoteService {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
             .build()
-
 
 
         val retrofit = Retrofit.Builder()

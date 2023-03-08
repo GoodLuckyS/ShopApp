@@ -38,6 +38,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
                     tvPrice.text = it.price
                     tvReviews.text = it.numbersOfReviews
                     tvSubPrice.text = it.price
+                    tvRating.text = it.rating
                 }
                 imagesAdapter.submitList(it.imageUrls)
                 colorsAdapter.submitList(it.colors)
@@ -54,7 +55,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
         binding.rcvColors.adapter = colorsAdapter
     }
 
-    private fun setImage(url:String?){
+    private fun setImage(url: String?) {
         Glide.with(this)
             .load(url)
             .apply(glideOptions)

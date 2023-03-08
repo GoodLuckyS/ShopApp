@@ -1,6 +1,7 @@
 package com.example.shopapp.ui.utils
 
 import android.util.Patterns
+import com.example.shopapp.ui.models.FieldState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
 
