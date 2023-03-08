@@ -20,6 +20,9 @@ class SharedPreferencesAppSettings(context: Context) : AppSettings {
             .apply()
     }
 
+    override fun isAuth(): Boolean = getCurrentAccountId() != UNDEFINED_ID
+
+
 
     companion object {
         private const val PREF_KEY_SETTINGS = "SETTINGS"

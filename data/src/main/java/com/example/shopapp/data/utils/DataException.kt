@@ -5,9 +5,13 @@ abstract class DataException : RuntimeException() {
 }
 
 class UniqueEmailException : DataException() {
-    override val message = "An account with this email already exists"
+    override val message = "An account with this email already exists!"
 }
 
 class SignInException : DataException() {
-    override val message: String = "Check your Username or Password"
+    override val message: String = "Check your Username or Password!"
+}
+
+class AuthException : DataException() {
+    override val message: String = "Occurred Error!"
 }

@@ -2,11 +2,12 @@ package com.example.shopapp.di.modules
 
 import androidx.lifecycle.ViewModel
 import com.example.shopapp.di.utils.ViewModelKey
-import com.example.shopapp.presentation.screens.details.DetailsViewModel
-import com.example.shopapp.presentation.screens.home.HomeViewModel
-import com.example.shopapp.presentation.screens.login.SignInViewModel
-import com.example.shopapp.presentation.screens.personal.PersonalViewModel
-import com.example.shopapp.presentation.screens.registration.SignUpViewModel
+import com.example.shopapp.ui.MainViewModel
+import com.example.shopapp.ui.screens.details.DetailsViewModel
+import com.example.shopapp.ui.screens.home.HomeViewModel
+import com.example.shopapp.ui.screens.login.SignInViewModel
+import com.example.shopapp.ui.screens.personal.PersonalViewModel
+import com.example.shopapp.ui.screens.registration.SignUpViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -39,4 +40,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(DetailsViewModel::class)
     fun bindsDetailsViewModel(viewModel: DetailsViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    fun bindsTabsHostViewModel(viewModel: MainViewModel) : ViewModel
 }

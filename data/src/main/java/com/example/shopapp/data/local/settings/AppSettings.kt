@@ -6,6 +6,8 @@ interface AppSettings {
 
     fun setCurrentAccountId(id: Long)
 
+    fun isAuth() : Boolean
+
     companion object {
         const val UNDEFINED_ID = -1L
     }

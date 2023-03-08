@@ -48,13 +48,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/boxEmail">
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
 
             android:hint="Password"
-            android:textSize="11sp" />
+            android:inputType="textPassword"
+            android:textSize="11sp"
+            android:drawableEnd="@drawable/baseline_visibility_off_24"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

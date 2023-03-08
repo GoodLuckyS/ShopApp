@@ -27,11 +27,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
+        app:shapeAppearance="@style/CircleImageView"
+        android:scaleType="centerCrop"
         android:id="@+id/imgProfile"
-        android:layout_width="61dp"
-        android:layout_height="61dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/ic_standart_icon"
+        android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/soapProfile" />
@@ -47,16 +49,16 @@
         app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:text="Satria Adhi Pradana"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnChangePhoto" />
 
@@ -73,11 +75,12 @@
         android:drawablePadding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -221,14 +224,13 @@
                 style="@style/ShopApp.Profile.Settings.TextView"
                 android:text="Help"
                 app:layout_constraintBottom_toBottomOf="@+id/imvHelpIcon"
-                app:layout_constraintEnd_toStartOf="@+id/imvTradeForward"
                 app:layout_constraintStart_toEndOf="@+id/imvHelpIcon"
                 app:layout_constraintTop_toTopOf="@+id/imvHelpIcon" />
 
             <ImageView
                 android:id="@+id/imvLogoutIcon"
                 style="@style/SettingsIcon"
-                android:src="@drawable/ic_rounded_help"
+                android:src="@drawable/ic_rounded_logout"
                 app:layout_constraintStart_toStartOf="@+id/imvHelpIcon"
                 app:layout_constraintTop_toBottomOf="@+id/imvHelpIcon" />
 
@@ -237,7 +239,6 @@
                 style="@style/ShopApp.Profile.Settings.TextView"
                 android:text="Log Out"
                 app:layout_constraintBottom_toBottomOf="@+id/imvLogoutIcon"
-                app:layout_constraintEnd_toStartOf="@+id/imvTradeForward"
                 app:layout_constraintStart_toEndOf="@+id/imvLogoutIcon"
                 app:layout_constraintTop_toTopOf="@+id/imvLogoutIcon" />
 

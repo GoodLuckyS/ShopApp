@@ -4,6 +4,7 @@ data class User(
     val firstName:String,
     val lastName:String,
     val email:String,
+    val uri : String = "",
     val id : Long = UNDEFINED_ID
 ) {
     companion object{

@@ -1,6 +1,6 @@
 package com.example.shopapp.di.modules
 
-import com.example.shopapp.data.ShopRepositoryImpl
+import com.example.shopapp.data.remote.ShopRepositoryImpl
 import com.example.shopapp.data.remote.service.RemoteService
 import com.example.shopapp.di.utils.ApplicationScope
 import com.example.shopapp.domain.shop.ShopRepository

@@ -4,5 +4,5 @@ import com.example.shopapp.domain.user.UserRepository
 import javax.inject.Inject
 
 class GetAuthStateUseCase@Inject constructor(private val repository: UserRepository) {
-   suspend operator fun invoke() = repository.getAuthState()
+   operator fun invoke() = repository.getAuthState()
 }
