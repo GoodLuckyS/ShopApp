@@ -8,30 +8,37 @@ import com.example.shopapp.domain.user.models.SignUpData
 import com.example.shopapp.domain.user.models.User
 
 @Entity(
-   tableName = "accounts",
+    tableName = "accounts",
     indices = [
         Index("email", unique = true)
     ]
 )
 data class UserDbEntity(
-
     @PrimaryKey(autoGenerate = true)
-    val id:Long,
+    val id: Long,
+    @ColumnInfo(name = "uri")
+    val uri: String,
     @ColumnInfo(name = "first_name")
-    val firstName:String,
+    val firstName: String,
     @ColumnInfo(name = "last_name")
-    val lastName:String,
+    val lastName: String,
     @ColumnInfo(name = "email")
-    val email:String,
-
+    val email: String,
 ) {
-    fun toDomain() = User(
-        firstName, lastName, email, id
+    fun mapToDomain() = User(
+        firstName = firstName,
+        lastName = lastName,
+        email = email,
+        uri = uri,
+        id = id
     )
 }
 
-fun SignUpData.toData() = UserDbEntity(
+fun SignUpData.mapToData() = UserDbEntity(
     id = 0,
-    firstName, lastName, email
+    uri = "",
+    firstName = firstName,
+    lastName = lastName,
+    email = email
 )
 

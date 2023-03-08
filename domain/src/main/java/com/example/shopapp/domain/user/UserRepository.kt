@@ -1,7 +1,9 @@
 package com.example.shopapp.domain.user
 
-import com.example.shopapp.domain.utils.AppResponse
 import com.example.shopapp.domain.user.models.SignUpData
+import com.example.shopapp.domain.user.models.User
+import com.example.shopapp.domain.utils.AppResponse
+import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
 
@@ -11,5 +13,11 @@ interface UserRepository {
 
     suspend fun signOut(): AppResponse<Unit>
 
-    suspend fun getAuthState(): AppResponse<Boolean>
+    suspend fun getUserById() : AppResponse<User>
+
+    fun getAuthState(): Flow<Boolean>
+
+    suspend fun updateUserImage(uri:String) : AppResponse<Unit>
+
+    suspend fun signInWithGoogle() : AppResponse<Unit>
 }

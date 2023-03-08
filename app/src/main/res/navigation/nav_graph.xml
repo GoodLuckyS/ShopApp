@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/first"
-        android:name="com.example.shopapp.presentation.screens.registration.SignUpFragment"
+        android:name="com.example.shopapp.ui.screens.registration.SignUpFragment"
         android:label="First" >
         <action
             android:id="@+id/action_first_to_signInFragment"
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.shopapp.presentation.screens.login.SignInFragment"
+        android:name="com.example.shopapp.ui.screens.login.SignInFragment"
         android:label="SignInFragment" >
         <action
             android:id="@+id/action_signInFragment_to_tabsHostFragment"
@@ -25,6 +25,13 @@
     </fragment>
     <fragment
         android:id="@+id/tabsHostFragment"
-        android:name="com.example.shopapp.presentation.screens.TabsHostFragment"
-        android:label="TabsHostFragment" />
+        android:name="com.example.shopapp.ui.screens.TabsHostFragment"
+        android:label="TabsHostFragment"
+        >
+        <action
+            android:id="@+id/action_tabsHostFragment_pop_including_first"
+            app:popUpTo="@id/first"
+            app:popUpToInclusive="true" />
+    </fragment>
+
 </navigation>

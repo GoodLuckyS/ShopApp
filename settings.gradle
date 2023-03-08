@@ -16,4 +16,3 @@ rootProject.name = "ShopApp"
 include ':app'
 include ':data'
 include ':domain'
-include ':feature-auth'

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,12 +11,12 @@
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/blue"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignIn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soapSignIn"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.302" />
 
     <TextView
         android:id="@+id/soapSignIn"
@@ -39,8 +38,7 @@
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/soapSignIn"
-        >
+        app:layout_constraintTop_toBottomOf="@id/soapSignIn">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtFirstName"
@@ -111,27 +109,26 @@
         android:id="@+id/soapHaveAnAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Already have an account?"
         app:layout_constraintStart_toStartOf="@id/btnSignIn"
-        app:layout_constraintTop_toBottomOf="@id/btnSignIn"
-        android:text="Already have an account?"/>
+        app:layout_constraintTop_toBottomOf="@id/btnSignIn" />
 
     <androidx.constraintlayout.widget.Barrier
-        app:layout_constraintTop_toBottomOf="@id/boxEmail"
-
         android:id="@+id/fieldsBottom"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="top"
-         />
+        app:layout_constraintTop_toBottomOf="@id/boxEmail" />
 
     <TextView
         android:id="@+id/btnLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="  Log In"
         android:textColor="@color/blue"
         app:layout_constraintStart_toEndOf="@id/soapHaveAnAccount"
-        app:layout_constraintTop_toBottomOf="@id/btnSignIn"
-        android:text="  Log In"/>
+        app:layout_constraintTop_toBottomOf="@id/btnSignIn" />
 
     <ImageView
         android:id="@+id/imageGoogle"
@@ -147,46 +144,27 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
+        android:id="@+id/signInWithGoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginStart="8dp"
-
-
         android:text="Sign In With Google"
         app:layout_constraintBottom_toBottomOf="@+id/imageGoogle"
         app:layout_constraintStart_toEndOf="@+id/imageGoogle"
         app:layout_constraintTop_toTopOf="@+id/imageGoogle"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/imageApple"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="36dp"
-
-        android:src="@drawable/icon_apple"
-        app:layout_constraintStart_toStartOf="@+id/imageGoogle"
-        app:layout_constraintTop_toBottomOf="@+id/imageGoogle" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Sign In With Apple"
-        app:layout_constraintBottom_toBottomOf="@+id/imageApple"
-        app:layout_constraintStart_toEndOf="@+id/imageApple"
-        app:layout_constraintTop_toTopOf="@+id/imageApple"
-        />
-
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="boxFirstName,boxLastName,boxEmail"
-       />
+        app:constraint_referenced_ids="boxFirstName,boxLastName,boxEmail,btnSignIn,imageGoogle,signInWithGoogle,soapHaveAnAccount,btnLogIn" />
 
-
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="imageGoogle,signInWithGoogle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

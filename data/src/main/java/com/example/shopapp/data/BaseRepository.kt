@@ -4,7 +4,9 @@ import com.example.shopapp.data.utils.DataMapper
 import com.example.shopapp.data.utils.mapToDomain
 import com.example.shopapp.domain.utils.AppError
 import com.example.shopapp.domain.utils.AppResponse
+import retrofit2.HttpException
 import retrofit2.Response
+import java.io.IOException
 
 abstract class BaseRepository {
 
@@ -27,8 +29,12 @@ abstract class BaseRepository {
                     AppResponse.Error(AppError.Api(it.message()))
                 }
             }
-        } catch (e: Exception) {
-            AppResponse.Error(AppError.Unexpected(e.message.toString()))
+        } catch (e: DataException) {
+            AppResponse.Error(AppError.Unexpected(e.message))
+        } catch (e: HttpException) {
+            AppResponse.Error(AppError.Unexpected(String.format("%d %s", e.code(), e.message())))
+        } catch (e: IOException) {
+            AppResponse.Error(AppError.Unexpected(e.message ?: "Occured Error"))
         }
 
     }

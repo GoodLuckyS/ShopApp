@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.shopapp.data.local.user.models.UserDbEntity
 import com.example.shopapp.data.local.user.UsersDao
+import com.example.shopapp.data.local.user.models.UserDbEntity
 
 @Database(
     version = 1,

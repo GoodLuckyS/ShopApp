@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/personalFragment"
-        android:name="com.example.shopapp.presentation.screens.personal.PersonalFragment"
+        android:name="com.example.shopapp.ui.screens.personal.PersonalFragment"
         android:label="PersonalFragment" />
 </navigation>
