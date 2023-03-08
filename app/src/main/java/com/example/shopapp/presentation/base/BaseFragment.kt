@@ -14,8 +14,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewbinding.ViewBinding
 import com.example.shopapp.MainApplication
-import com.example.shopapp.domain.AppException
-import com.example.shopapp.presentation.entity.UIState
+import com.example.shopapp.domain.utils.AppError
+import com.example.shopapp.presentation.models.UIState
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -97,7 +97,7 @@ abstract class BaseFragment<VB : ViewBinding>(
     }
 
     fun <T> UIState<T>.onError(
-        block: (data: AppException) -> Unit,
+        block: (data: AppError) -> Unit,
     ): UIState<T> {
         if (this is UIState.Error) {
             block(this.error)
@@ -121,16 +121,16 @@ abstract class BaseFragment<VB : ViewBinding>(
         _binding = null
     }
 
-    fun AppException.setupApiErrors(vararg inputs: TextInputLayout) {
-        if (this is AppException.Api) {
+    fun AppError.setupApiErrors(vararg inputs: TextInputLayout) {
+        if (this is AppError.Api) {
             for (input in inputs) {
                 input.error = message
             }
         }
     }
 
-    fun AppException.setupUnexpectedErrors(context: Context) {
-        if (this is AppException.Unexpected) {
+    fun AppError.setupUnexpectedErrors(context: Context) {
+        if (this is AppError.Unexpected) {
             Toast.makeText(context, this.message, Toast.LENGTH_LONG).show()
         }
     }
