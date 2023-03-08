@@ -2,7 +2,7 @@ package com.example.shopapp.di
 
 import android.app.Application
 import com.example.shopapp.di.utils.ApplicationScope
-import com.example.shopapp.presentation.ViewModelFactory
+import com.example.shopapp.ui.utils.ViewModelFactory
 import dagger.BindsInstance
 import dagger.Component
 

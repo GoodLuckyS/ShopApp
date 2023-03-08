@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home"
+    app:startDestination="@id/pageFragment">
+    <fragment
+        android:id="@+id/pageFragment"
+        android:name="com.example.shopapp.ui.screens.home.HomeFragment"
+        android:label="PageFragment">
+        <action
+            android:id="@+id/action_pageFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.shopapp.ui.screens.details.DetailsFragment"
+        android:label="DetailsFragment" />
+</navigation>

@@ -2,29 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/first">
+    app:startDestination="@id/sign_up_fragment">
 
     <fragment
-        android:id="@+id/first"
-        android:name="com.example.shopapp.presentation.screens.SignUpFragment"
-        android:label="First" >
+        android:id="@+id/sign_up_fragment"
+        android:name="com.example.shopapp.ui.screens.registration.SignUpFragment"
+        android:label="First">
         <action
             android:id="@+id/action_first_to_signInFragment"
             app:destination="@id/signInFragment" />
         <action
             android:id="@+id/action_first_to_tabsHostFragment"
-            app:destination="@id/tabsHostFragment" />
+            app:destination="@id/tabsHostFragment"
+            app:popUpTo="@id/sign_up_fragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.shopapp.presentation.screens.page2.SignInFragment"
-        android:label="SignInFragment" >
+        android:name="com.example.shopapp.ui.screens.login.SignInFragment"
+        android:label="SignInFragment">
         <action
             android:id="@+id/action_signInFragment_to_tabsHostFragment"
-            app:destination="@id/tabsHostFragment" />
+            app:destination="@id/tabsHostFragment"
+            app:popUpTo="@id/signInFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/tabsHostFragment"
-        android:name="com.example.shopapp.presentation.screens.TabsHostFragment"
-        android:label="TabsHostFragment" />
+        android:name="com.example.shopapp.ui.screens.TabsHostFragment"
+        android:label="TabsHostFragment">
+    </fragment>
+
 </navigation>

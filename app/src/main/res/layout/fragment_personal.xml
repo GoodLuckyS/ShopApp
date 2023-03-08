@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/soapProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/soapProfile"
+        app:shapeAppearance="@style/CircleImageView" />
+
+    <TextView
+        android:id="@+id/btnChangePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change photo"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/imgProfile"
+        app:layout_constraintStart_toStartOf="@id/imgProfile"
+        app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="Satria Adhi Pradana"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnChangePhoto" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignIn"
+        style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="@color/blue"
+        android:drawablePadding="8dp"
+        android:text="Upload Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSignIn">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imvTradeIcon"
+                style="@style/SettingsIcon"
+                android:layout_marginStart="28dp"
+                android:src="@drawable/ic_rounded_card"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTrade"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:text="Trade store"
+                app:layout_constraintBottom_toBottomOf="@+id/imvTradeIcon"
+                app:layout_constraintEnd_toStartOf="@+id/imvTradeForward"
+                app:layout_constraintStart_toEndOf="@+id/imvTradeIcon"
+                app:layout_constraintTop_toTopOf="@+id/imvTradeIcon" />
+
+            <ImageView
+                android:id="@+id/imvTradeForward"
+                style="@style/SettingsForward"
+                android:src="@drawable/ic_arrow_forward"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTrade"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvTrade" />
+
+            <ImageView
+                android:id="@+id/imvPaymentIcon"
+                style="@style/SettingsIcon"
+                android:src="@drawable/ic_rounded_card"
+                app:layout_constraintStart_toStartOf="@+id/imvTradeIcon"
+                app:layout_constraintTop_toBottomOf="@+id/imvTradeIcon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPayment"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:text="Payment method"
+                app:layout_constraintBottom_toBottomOf="@+id/imvPaymentIcon"
+                app:layout_constraintEnd_toStartOf="@+id/imvTradeForward"
+                app:layout_constraintStart_toEndOf="@+id/imvPaymentIcon"
+                app:layout_constraintTop_toTopOf="@+id/imvPaymentIcon" />
+
+            <ImageView
+                android:id="@+id/imvPaymentForward"
+                style="@style/SettingsForward"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPayment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvPayment" />
+
+            <ImageView
+                android:id="@+id/imvBalanceIcon"
+                style="@style/SettingsIcon"
+                android:src="@drawable/ic_rounded_card"
+                app:layout_constraintStart_toStartOf="@+id/imvPaymentIcon"
+                app:layout_constraintTop_toBottomOf="@+id/imvPaymentIcon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBalance"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:text="Balance"
+                app:layout_constraintBottom_toBottomOf="@+id/imvBalanceIcon"
+                app:layout_constraintEnd_toStartOf="@+id/textView2"
+                app:layout_constraintStart_toEndOf="@+id/imvBalanceIcon"
+                app:layout_constraintTop_toTopOf="@+id/imvBalanceIcon" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="44dp"
+                android:text="$1593"
+                app:layout_constraintBottom_toBottomOf="@id/tvBalance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvBalance"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imvHistoryIcon"
+                style="@style/SettingsIcon"
+                android:src="@drawable/ic_rounded_card"
+                app:layout_constraintStart_toStartOf="@+id/imvBalanceIcon"
+                app:layout_constraintTop_toBottomOf="@+id/imvBalanceIcon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHistory"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:text="Trade History"
+                app:layout_constraintBottom_toBottomOf="@+id/imvHistoryIcon"
+                app:layout_constraintEnd_toStartOf="@+id/imvTradeForward"
+                app:layout_constraintStart_toEndOf="@+id/imvHistoryIcon"
+                app:layout_constraintTop_toTopOf="@+id/imvHistoryIcon" />
+
+            <ImageView
+                android:id="@+id/imvHistoryForward"
+                style="@style/SettingsForward"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHistory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvHistory" />
+
+            <ImageView
+                android:id="@+id/imvRestoreIcon"
+                style="@style/SettingsIcon"
+                android:src="@drawable/ic_rounded_restore"
+                app:layout_constraintStart_toStartOf="@+id/imvHistoryIcon"
+                app:layout_constraintTop_toBottomOf="@+id/imvHistoryIcon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRestore"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:text="Restore Purchase"
+                app:layout_constraintBottom_toBottomOf="@+id/imvRestoreIcon"
+                app:layout_constraintEnd_toStartOf="@+id/imvTradeForward"
+                app:layout_constraintStart_toEndOf="@+id/imvRestoreIcon"
+                app:layout_constraintTop_toTopOf="@+id/imvRestoreIcon" />
+
+            <ImageView
+                android:id="@+id/imvRestoreForward"
+                style="@style/SettingsForward"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRestore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvRestore" />
+
+            <ImageView
+                android:id="@+id/imvHelpIcon"
+                style="@style/SettingsIcon"
+                android:src="@drawable/ic_rounded_help"
+                app:layout_constraintStart_toStartOf="@+id/imvRestoreIcon"
+                app:layout_constraintTop_toBottomOf="@+id/imvRestoreIcon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHelp"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:text="Help"
+                app:layout_constraintBottom_toBottomOf="@+id/imvHelpIcon"
+                app:layout_constraintStart_toEndOf="@+id/imvHelpIcon"
+                app:layout_constraintTop_toTopOf="@+id/imvHelpIcon" />
+
+            <ImageView
+                android:id="@+id/imvLogoutIcon"
+                style="@style/SettingsIcon"
+                android:src="@drawable/ic_rounded_logout"
+                app:layout_constraintStart_toStartOf="@+id/imvHelpIcon"
+                app:layout_constraintTop_toBottomOf="@+id/imvHelpIcon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLogout"
+                style="@style/ShopApp.Profile.Settings.TextView"
+                android:text="Log Out"
+                app:layout_constraintBottom_toBottomOf="@+id/imvLogoutIcon"
+                app:layout_constraintStart_toEndOf="@+id/imvLogoutIcon"
+                app:layout_constraintTop_toTopOf="@+id/imvLogoutIcon" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupLogOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="imvLogoutIcon,tvLogout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

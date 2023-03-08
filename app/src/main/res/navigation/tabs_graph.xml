@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tabs_graph"
-    app:startDestination="@id/signUpFragment2">
+    app:startDestination="@id/home">
 
-    <fragment
-        android:id="@+id/signUpFragment2"
-        android:name="com.example.shopapp.presentation.screens.SignUpFragment"
-        android:label="SignUpFragment" />
+    <include app:graph="@navigation/personal" />
+    <include app:graph="@navigation/home" />
+
+
 </navigation>
