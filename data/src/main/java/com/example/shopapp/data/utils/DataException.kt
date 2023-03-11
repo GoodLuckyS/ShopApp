@@ -1,11 +1,11 @@
-package com.example.shopapp.data
+package com.example.shopapp.data.utils
 
 abstract class DataException : RuntimeException() {
     abstract override val message: String
 }
 
-class UniqueEmailException : DataException() {
-    override val message = "An account with this email already exists!"
+class UniqueException : DataException() {
+    override val message = "An account with this email/name already exists!"
 }
 
 class SignInException : DataException() {

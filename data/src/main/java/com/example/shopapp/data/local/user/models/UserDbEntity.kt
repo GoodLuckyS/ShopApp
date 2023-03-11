@@ -10,7 +10,8 @@ import com.example.shopapp.domain.user.models.User
 @Entity(
     tableName = "accounts",
     indices = [
-        Index("email", unique = true)
+        Index("email", unique = true),
+        Index("first_name", unique = true)
     ]
 )
 data class UserDbEntity(

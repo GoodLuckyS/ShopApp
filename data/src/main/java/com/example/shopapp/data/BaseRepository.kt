@@ -1,5 +1,6 @@
 package com.example.shopapp.data
 
+import com.example.shopapp.data.utils.DataException
 import com.example.shopapp.data.utils.DataMapper
 import com.example.shopapp.data.utils.mapToDomain
 import com.example.shopapp.domain.utils.AppError

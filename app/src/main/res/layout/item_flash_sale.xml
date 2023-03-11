@@ -23,7 +23,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imv_saler"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_margin="8dp"

@@ -133,7 +133,6 @@
                 app:layout_constraintTop_toTopOf="@+id/imvPaymentIcon" />
 
             <ImageView
-                android:id="@+id/imvPaymentForward"
                 style="@style/SettingsForward"
                 app:layout_constraintBottom_toBottomOf="@+id/tvPayment"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -183,7 +182,6 @@
                 app:layout_constraintTop_toTopOf="@+id/imvHistoryIcon" />
 
             <ImageView
-                android:id="@+id/imvHistoryForward"
                 style="@style/SettingsForward"
                 app:layout_constraintBottom_toBottomOf="@+id/tvHistory"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +204,6 @@
                 app:layout_constraintTop_toTopOf="@+id/imvRestoreIcon" />
 
             <ImageView
-                android:id="@+id/imvRestoreForward"
                 style="@style/SettingsForward"
                 app:layout_constraintBottom_toBottomOf="@+id/tvRestore"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +217,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/imvRestoreIcon" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvHelp"
                 style="@style/ShopApp.Profile.Settings.TextView"
                 android:text="Help"
                 app:layout_constraintBottom_toBottomOf="@+id/imvHelpIcon"
@@ -243,7 +239,6 @@
                 app:layout_constraintTop_toTopOf="@+id/imvLogoutIcon" />
 
             <androidx.constraintlayout.widget.Group
-                android:id="@+id/groupLogOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:constraint_referenced_ids="imvLogoutIcon,tvLogout" />

@@ -7,6 +7,9 @@ import com.example.shopapp.domain.user.usecase.SignOutUseCase
 import com.example.shopapp.domain.user.usecase.UpdateUserImageUseCase
 import com.example.shopapp.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,18 +20,22 @@ class PersonalViewModel @Inject constructor(
     private val updateUserImageUseCase: UpdateUserImageUseCase,
 ) : BaseViewModel() {
 
-    private var _uiState = MutableUIStateFlow<User>()
+    private var _uiState = MutableUIStateFlow<Unit>()
     val uiState = _uiState.asStateFlow()
 
+    private var _user =
+        MutableSharedFlow<User>(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    val user: SharedFlow<User> = _user
+
     init {
-        handleRequest(_uiState) {
-            getUserUseCase()
-        }
+        _user.emitRequest(_uiState, {
+            getUserUseCase.invoke()
+        }) { it }
     }
 
     fun signOut() {
-        viewModelScope.launch(Dispatchers.IO) {
-            signOutUseCase()
+        handleRequest(_uiState) {
+            signOutUseCase.invoke()
         }
     }
 

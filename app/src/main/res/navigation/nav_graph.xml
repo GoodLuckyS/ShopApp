@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/sign_up_fragment">
+    app:startDestination="@id/signUpFragment">
 
     <fragment
-        android:id="@+id/sign_up_fragment"
+        android:id="@+id/signUpFragment"
         android:name="com.example.shopapp.ui.screens.registration.SignUpFragment"
         android:label="First">
         <action
@@ -14,7 +13,7 @@
         <action
             android:id="@+id/action_first_to_tabsHostFragment"
             app:destination="@id/tabsHostFragment"
-            app:popUpTo="@id/sign_up_fragment"
+            app:popUpTo="@id/signUpFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -30,7 +29,6 @@
     <fragment
         android:id="@+id/tabsHostFragment"
         android:name="com.example.shopapp.ui.screens.TabsHostFragment"
-        android:label="TabsHostFragment">
-    </fragment>
+        android:label="TabsHostFragment"></fragment>
 
 </navigation>

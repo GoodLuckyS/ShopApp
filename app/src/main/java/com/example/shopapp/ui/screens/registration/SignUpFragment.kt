@@ -35,7 +35,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(
         viewModel.uiState.observe { uiState ->
             uiState.setupViewVisibility(binding.groupSignUp, binding.progressBar, true)
             uiState.onSuccess { findNavController().navigate(R.id.action_first_to_tabsHostFragment) }
-            uiState.onError { it.setupApiErrors(binding.boxEmail) }
+            uiState.onError { it.setupApiErrors(binding.boxEmail, binding.boxFirstName) }
         }
 
         viewModel.isEmptyField.observe {

@@ -1,13 +1,13 @@
 package com.example.shopapp.data.local
 
-import com.example.shopapp.data.AuthException
 import com.example.shopapp.data.BaseRepository
-import com.example.shopapp.data.SignInException
-import com.example.shopapp.data.UniqueEmailException
 import com.example.shopapp.data.local.settings.AppSettings
 import com.example.shopapp.data.local.user.UsersDao
 import com.example.shopapp.data.local.user.models.UserUpdateImageTuple
 import com.example.shopapp.data.local.user.models.mapToData
+import com.example.shopapp.data.utils.AuthException
+import com.example.shopapp.data.utils.SignInException
+import com.example.shopapp.data.utils.UniqueException
 import com.example.shopapp.domain.user.UserRepository
 import com.example.shopapp.domain.user.models.SignUpData
 import com.example.shopapp.domain.user.models.User
@@ -16,6 +16,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.mapNotNull
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -25,18 +26,14 @@ class UserRepositoryImpl @Inject constructor(
 
     private val currentAccount = MutableStateFlow(appSettings.getCurrentAccountId())
 
-    override suspend fun signIn(email: String): AppResponse<Unit> = doRequest {
-        usersDao.signIn(email).also {
-            setCurrentAccount(it?.id)
-        }
+    override suspend fun signIn(firstName: String): AppResponse<Unit> = doRequest {
+        usersDao.findUserByFirstName(firstName).also { setCurrentAccount(it?.id) }
     }
 
     override suspend fun signUp(data: SignUpData): AppResponse<Unit> = doRequest {
-        delay(1000)
-        if (!validate(data.email)) throw UniqueEmailException()
-        usersDao.signUp(data.mapToData()).also {
-            signIn(data.email)
-        }
+        delay(500)
+        if (!validateEmail(data.email) || !validateFirstName(data.firstName)) throw UniqueException()
+        usersDao.signUp(data.mapToData()).also { signIn(data.firstName) }
     }
 
     override suspend fun signOut(): AppResponse<Unit> = doRequest {
@@ -45,8 +42,14 @@ class UserRepositoryImpl @Inject constructor(
         currentAccount.value = appSettings.getCurrentAccountId()
     }
 
-    override suspend fun getUserById(): AppResponse<User> = doRequest {
-        usersDao.getUserById(currentAccount.value).mapToDomain()
+    override suspend fun getUserById(): AppResponse<Flow<User>> = doRequest {
+        usersDao.getUserById(currentAccount.value).mapNotNull {
+            it?.mapToDomain()
+        }
+    }
+
+    override suspend fun getUserImage(): AppResponse<Flow<String>> = doRequest {
+        usersDao.getUserImage(currentAccount.value)
     }
 
     override fun getAuthState(): Flow<Boolean> = flow { emit(appSettings.isAuth()) }
@@ -57,12 +60,15 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     override suspend fun signInWithGoogle(): AppResponse<Unit> = doRequest {
-        if (!validate(GOOGLE_SIGNIN_DATA_SOAP)) signIn(GOOGLE_SIGNIN_DATA_SOAP)
-        else signUp(GOOGLE_SIGNUP_DATA_SOAP)
+        if (!validateEmail(GOOGLE_SIGNUP_DATA.email) && !validateFirstName(GOOGLE_SIGNUP_DATA.firstName))
+            signIn(GOOGLE_SIGNUP_DATA.firstName)
+        else signUp(GOOGLE_SIGNUP_DATA)
     }
 
-    private suspend fun validate(email: String) =
-        usersDao.findUserByEmail(email)?.id == null
+    private suspend fun validateEmail(email: String) = usersDao.findUserByEmail(email)?.id == null
+
+    private suspend fun validateFirstName(firstName: String) =
+        usersDao.findUserByFirstName(firstName)?.id == null
 
     private fun setCurrentAccount(id: Long?) {
         appSettings.setCurrentAccountId(id ?: throw SignInException())
@@ -70,8 +76,7 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     companion object {
-        val GOOGLE_SIGNUP_DATA_SOAP = SignUpData("Google", "Android", "")
-        const val GOOGLE_SIGNIN_DATA_SOAP = ""
+        val GOOGLE_SIGNUP_DATA = SignUpData("Google", "Android", "")
     }
 }
 
