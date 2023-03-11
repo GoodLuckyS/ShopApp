@@ -29,11 +29,14 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(
         viewModel.uiState.observe { uiState ->
             uiState.setupViewVisibility(binding.group, binding.progressBar, true)
             uiState.onSuccess { findNavController().navigate(R.id.action_signInFragment_to_tabsHostFragment) }
-            uiState.onError { it.setupApiErrors(binding.boxEmail, binding.boxPassword) }
+            uiState.onError {
+                it.setupApiErrors(binding.boxFirstName, binding.boxPassword)
+                it.setupUnexpectedErrors(requireContext())
+            }
         }
 
         viewModel.isEmptyField.observe {
-            binding.boxEmail.error = it.fieldInputMessage
+            binding.boxFirstName.error = it.fieldInputMessage
             binding.boxPassword.error = it.fieldInputMessage
         }
     }

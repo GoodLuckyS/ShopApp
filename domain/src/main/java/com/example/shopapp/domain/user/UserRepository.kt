@@ -7,17 +7,20 @@ import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
 
-    suspend fun signIn(email: String): AppResponse<Unit>
+    suspend fun signIn(firstName: String): AppResponse<Unit>
+
+    suspend fun signInWithGoogle(): AppResponse<Unit>
 
     suspend fun signUp(data: SignUpData): AppResponse<Unit>
 
     suspend fun signOut(): AppResponse<Unit>
 
-    suspend fun getUserById(): AppResponse<User>
+    suspend fun getUserById(): AppResponse<Flow<User>>
 
-    fun getAuthState(): Flow<Boolean>
+    suspend fun getUserImage(): AppResponse<Flow<String>>
 
     suspend fun updateUserImage(uri: String): AppResponse<Unit>
 
-    suspend fun signInWithGoogle(): AppResponse<Unit>
+    fun getAuthState(): Flow<Boolean>
+
 }

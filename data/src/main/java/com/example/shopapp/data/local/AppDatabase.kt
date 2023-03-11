@@ -8,7 +8,7 @@ import com.example.shopapp.data.local.user.UsersDao
 import com.example.shopapp.data.local.user.models.UserDbEntity
 
 @Database(
-    version = 1,
+    version = 10,
     entities = [
         UserDbEntity::class,
     ]

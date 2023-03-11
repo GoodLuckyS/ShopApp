@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun prepareRootNavController() {
         val graph = navController.navInflater.inflate(getMainNavGraphId())
 
@@ -57,5 +56,5 @@ class MainActivity : AppCompatActivity() {
     private fun getTabsDestination(): Int = R.id.tabsHostFragment
 
 
-    private fun getAuthDestination(): Int = R.id.sign_up_fragment
+    private fun getAuthDestination(): Int = R.id.signUpFragment
 }

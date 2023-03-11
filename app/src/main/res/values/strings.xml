@@ -2,12 +2,16 @@
     <string name="app_name">ShopApp</string>
 
     <!-- Error Strings -->
-    <string name="error_empty_field">This field must be filled</string>
-    <string name="error_email_contains">This field should contain Email</string>
     <string name="error_cant_open_file">Sorry!We can\'t open file,try again!</string>
     <string name="fragment_details_reviews">Reviews</string>
     <string name="whar_are_your_looking_for">Whar are your looking for?</string>
     <string name="trade_by">Trade by</string>
     <string name="bata">bata</string>
     <string name="location">Location</string>
+    <string name="first_name">First name</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_with_apple">Sign In With Apple</string>
+    <string name="sign_in_with_google">Sign In With Google</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="log_in">Log In</string>
 </resources>

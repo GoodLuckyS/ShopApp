@@ -31,6 +31,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
 
     override fun setupSubscribes() {
         viewModel.uiState.observe { uiState ->
+            uiState.setupViewVisibility(binding.group, binding.progressBar)
             uiState.onSuccess {
                 binding.apply {
                     tvName.text = it.name
@@ -44,6 +45,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(
                 colorsAdapter.submitList(it.colors)
                 setImage(it.imageUrls.firstOrNull()?.url)
             }
+            uiState.onError { it.setupUnexpectedErrors(requireContext()) }
         }
     }
 

@@ -6,15 +6,15 @@
         android:icon="@drawable/ic_home"
         android:title="" />
     <item
-        android:id="@+id/likes"
+        android:id="@id/coming_soon"
         android:icon="@drawable/ic_likes"
         android:title="" />
     <item
-        android:id="@+id/cart"
+        android:id="@id/coming_soon"
         android:icon="@drawable/ic_cart"
         android:title="" />
     <item
-        android:id="@+id/chat"
+        android:id="@id/coming_soon"
         android:icon="@drawable/ic_chat"
         android:title="" />
     <item

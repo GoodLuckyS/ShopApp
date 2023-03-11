@@ -48,9 +48,9 @@ class ChildAdapter(private val category: String) : BaseAdapter<ProductUIModel, I
         class Latest(private val binding: ItemBinding) : ProductViewHolder(binding) {
             override fun bind(item: ProductUIModel) {
                 binding.apply {
-                    name.text = item.name
-                    price.text = String.format("%s $", item.price)
-                    textView3.text = item.category
+                    tvName.text = item.name
+                    tvPrice.text = String.format("%s $", item.price)
+                    tvCategory.text = item.category
                     loadImage(imvBackground, item.imageUrl)
                 }
 
